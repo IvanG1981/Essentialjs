@@ -11,7 +11,7 @@ const NavigationBar = styled.div`
 function NavBar() {
   return (
     <NavigationBar>
-      <h1>Navbar overhere</h1>
+      <h1>Essential Web Development </h1>
     </NavigationBar>
   );
 }

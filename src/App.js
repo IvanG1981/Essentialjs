@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useState } from 'react';
+import NavBar from './components/NavBar';
+import Menu from './components/Menu';
+import Content from './components/Content';
+import styled from 'styled-components';
+import { data }  from './data'
+
+const Wraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  text-align: center;
+
+`;
+
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 3em;
+  background-color: #e1f4f3;
+
+`;
 
 function App() {
+  const [ content, setContent ] = useState([])
+
+  function handleClick(e){
+    const chosenQuestion = data.filter(ele => ele.id === parseInt(e.target.id))
+    setContent(...chosenQuestion);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wraper >
+      <NavBar/>
+      <Container>
+        <Menu handleClick= { handleClick }/>
+        <Content content={ content }/>
+      </Container>
+    </Wraper>
   );
 }
 
