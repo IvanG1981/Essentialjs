@@ -46,5 +46,26 @@ export const data = [
     question: 'What are the phases in the lifecycle of a component',
     answer: 'Initialization, mounting, updating, unmounting',
     link: "'https://www.freecodecamp.org/news/how-to-understand-a-components-lifecycle-methods-in-reactjs-e1a609840630/#:~:text=Components%20are%20created%20(mounted%20on,phases%20of%20a%20component's%20life.'"
-  }
+  },
+  {
+    id: 9,
+    question: 'High Order Component',
+    answer: '',
+    link: ""
+  },
+  {
+    id: 10,
+    question: 'Memoization',
+    answer: '',
+    link: ""
+  },
+  {
+    id: 11,
+    question: 'Event loop in Node.js',
+    answer: '',
+    link: ""
+  },
+
+
+
 ]

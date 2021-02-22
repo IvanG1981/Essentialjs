@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { data }  from '../data'
 
 
 const MainMenu = styled.div`
@@ -30,14 +31,18 @@ function Menu({ handleClick }) {
     <MainMenu>
       <h1>Questions</h1>
       <Ul>
-        <Li id={1} onClick={ handleClick }>What is Javascript and what is EcmaScript?</Li>
-        <Li id={2} onClick={ handleClick }>Compare real DOM and Virtual DOM?</Li>
-        <Li id={3} onClick={ handleClick }>What is Hoisting?</Li>
-        <Li id={4} onClick={ handleClick }>What is Scope?</Li>
-        <Li id={5} onClick={ handleClick }>What is Lexical Scope?</Li>
-        <Li id={6} onClick={ handleClick }>What is Closure?</Li>
-        <Li id={7} onClick={ handleClick }>What is the difference between == and ===?</Li>
-        <Li id={8} onClick={ handleClick }>What are the phases in the lifecycle of a component?</Li>
+        {
+          !!data && data.length >0 && data.map(el => {
+            return(
+              <Li
+                id={el.id}
+                onClick={ handleClick }
+              >
+                { el.question }
+              </Li>
+            )
+          })
+        }
       </Ul>
     </MainMenu>
   );
