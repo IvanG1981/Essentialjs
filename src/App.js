@@ -1,44 +1,26 @@
-
-import { useState } from 'react';
+import Home from './pages/Home';
+import Compose from './pages/Compose';
 import NavBar from './components/NavBar';
-import Menu from './components/Menu';
-import Content from './components/Content';
-import styled from 'styled-components';
-import { data }  from './data'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
-const Wraper = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5em;
-  text-align: center;
-
-`;
-
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 3em;
-  background-color: #e1f4f3;
-
-`;
 
 function App() {
-  const [ content, setContent ] = useState([])
-
-  function handleClick(e){
-    const chosenQuestion = data.filter(ele => ele.id === parseInt(e.target.id))
-    setContent(...chosenQuestion);
-  }
   return (
-    <Wraper >
-      <NavBar/>
-      <Container>
-        <Menu handleClick= { handleClick }/>
-        <Content content={ content }/>
-      </Container>
-    </Wraper>
+    <Router>
+      <header>
+        <NavBar/>
+      </header>
+      <Switch>
+        <Route exact path ="/" component={ Home }/>
+        <Route exact path ="/compose" component={ Compose } />
+        <Redirect from='*' to='/'/>
+      </Switch>
+    </Router>
   );
 }
 
