@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import NavBar from '../components/NavBar';
 import Menu from '../components/Menu';
 import Content from '../components/Content';
 import styled from 'styled-components';
@@ -34,7 +33,6 @@ function Home() {
   }
   return (
     <Wraper >
-      <NavBar/>
       <Container>
         <Menu handleClick= { handleClick }/>
         <Content content={ content }/>
