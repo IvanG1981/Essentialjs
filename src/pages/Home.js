@@ -1,9 +1,10 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Menu from '../components/Menu';
-import Content from '../components/Content';
 import styled from 'styled-components';
-import { data }  from '../data'
+
+
 
 
 const Wraper = styled.div`
@@ -25,17 +26,40 @@ const Container = styled.div`
 `;
 
 function Home() {
-  const [ content, setContent ] = useState([])
+  const [ content, setContent ] = useState([]);
+  const [ error, setError ] = useState(false);
+  const [ loading, setLoading ] = useState(true);
 
-  function handleClick(e){
-    const chosenQuestion = data.filter(ele => ele.id === parseInt(e.target.id))
-    setContent(...chosenQuestion);
+
+  const postsRequest = async () => {
+    try {
+      const response = await axios({
+        method: 'GET',
+        url:'http://localhost:8000/posts'
+      })
+      const { data } = response.data;
+      setContent( prev => [...data])
+      setLoading(false)
+    }
+    catch(err) {
+      setError(true);
+      setLoading(false)
+    }
   }
+
+  useEffect(()=> {
+    postsRequest();
+  },[]);
+
+
+
+  if(loading) return (<h1>...Loading content</h1>)
+  if(error) return(<h1>Sometihng went wrong</h1>)
+
   return (
     <Wraper >
       <Container>
-        <Menu handleClick= { handleClick }/>
-        <Content content={ content }/>
+        <Menu data= { content } />
       </Container>
     </Wraper>
   );
