@@ -8,7 +8,7 @@ export const data = [
   {
     id: 2,
     question: 'Compare real DOM and Virual DOM',
-    answer: "A virtual DOM object has the same properties as a real DOM object, but it lacks the real thing's power to directly change what's on the screen. Manipulating the DOM is slow. Manipulating the virtual DOM is much faster, because nothing gets drawn onscreen",
+    answer: "Virtual DOM is a representation of real DOM. Whenever states are changed new virtual DOM will be created and will be compared with previous virtual DOM. And then DOM operations will be applied for those specific changes. The cost of virtual DOM is calculating diff with another virtual DOM. For a big project with lots of components, diff calculation will take time.",
     link:"https://www.codecademy.com/articles/react-virtual-dom#:~:text=A%20virtual%20DOM%20object%20has,because%20nothing%20gets%20drawn%20onscreen."
   },
   {
@@ -50,8 +50,8 @@ export const data = [
   {
     id: 9,
     question: 'High Order Component',
-    answer: '',
-    link: ""
+    answer: 'Allows to pass props to specific components avoiding prop drilling to do so.',
+    link: "https://css-tricks.com/what-are-higher-order-components-in-react/"
   },
   {
     id: 10,
@@ -65,6 +65,26 @@ export const data = [
     answer: '',
     link: ""
   },
+  {
+    id: 12,
+    question: 'DOM',
+    answer: "The DOM is a representation of the HTML document. With the HTML DOM, JavaScript can access and change all the elements of an HTML document. The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web",
+    link:"https://www.w3schools.com/js/js_htmldom.asp"
+  },
+  {
+    id: 13,
+    question: 'VDOM',
+    answer: "Virtual DOM is a representation of the DOM. The creation of real dom will be handled by browsers. Modern frameworks like react, vue, etc.., will create a tree of elements similar to real dom in memory this is called virtual DOM. By using virtual DOM, we can find out what is changed and with that, we can apply only those changes to real DOM instead of replacing entire DOM.",
+    link:"https://dev.to/karthikraja34/what-is-virtual-dom-and-why-is-it-faster-14p9"
+  },
+  {
+    id: 14,
+    question: 'Hooks',
+    answer: "They let you use state and other React features without writing a class. Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don’t work inside classes — they let you use React without classes",
+    link:""
+  },
+
+
 
 
 
