@@ -49,19 +49,19 @@ function Menu({ data }) {
 
   const handleChosen = async (e) => {
     const postId = e.target.id;
-    setLoading(true);
+    setLoading( prev => !prev );
     try {
       const response = await axios({
         method: 'GET',
         url:`http://localhost:8000/posts/${postId}`
       })
       const { data } = response.data;
-      setChosen(data)
-      setLoading(false)
+      setChosen( data );
+      setLoading( prev => !prev );
     }
     catch(err) {
-      setError(true)
-      setLoading(false)
+      setError( prev => !prev );
+      setLoading( prev => !prev );
     }
   }
   if(error) return(<h1>Something went wrong</h1>)

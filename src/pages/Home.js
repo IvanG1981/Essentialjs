@@ -4,17 +4,12 @@ import axios from 'axios';
 import Menu from '../components/Menu';
 import styled from 'styled-components';
 
-
-
-
 const Wraper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.5em;
   text-align: center;
-
 `;
-
 
 const Container = styled.div`
   display: flex;
@@ -38,12 +33,12 @@ function Home() {
         url:'http://localhost:8000/posts'
       })
       const { data } = response.data;
-      setContent( prev => [...data])
-      setLoading(false)
+      setContent( prev => [...data]);
+      setLoading( prev => !prev );
     }
     catch(err) {
-      setError(true);
-      setLoading(false)
+      setError( prev=> !prev );
+      setLoading( prev=> !prev );
     }
   }
 
